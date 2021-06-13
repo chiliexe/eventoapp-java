@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap4/css/bootstrap.min.css">
+    <title>Criar Novo evento</title>
+</head>
+<body>
+    
+
+    <div class="container">
+        <h2 class="text-center my-4">Cadastrar Novo Evento</h2>
+        <div class="alert alert-danger alert-dismissible" th:if="${not #strings.isEmpty(msgError)}">
+			<span th:text="${msgError}"></span>
+		</div>
+		<div class="alert alert-success alert-dismissible" th:if="${not #strings.isEmpty(msgSuccess)}">
+			<span th:text="${msgSuccess}"></span>
+		</div>
+        <form action="" method="post" class="my-4">
+            <div class="form-group">
+                <label for="nome">Nome: </label>
+                <input type="text" class="form-control" id="nome" name="nome">
+            </div>
+            <div class="form-group">
+                <label for="local">local: </label>
+                <input type="text" class="form-control" id="local" name="local">
+            </div>
+            <div class="form-group">
+                <label for="data">data: </label>
+                <input type="date" class="form-control" id="data" name="data">
+            </div>
+            <div class="form-group">
+                <label for="horario">horario: </label>
+                <input type="text" class="form-control" id="horario" name="horario">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Enviar</button>
+            <a href="/eventos" class="btn btn-danger float-right">Voltar</a>
+
+        </form>
+    </div>
+    <script src="bootstrap4/js/bootstrap.min.js"></script>
+</body>
+</html>

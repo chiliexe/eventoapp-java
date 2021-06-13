@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap4/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+    	<h2 class="text-center mt-4">Detalhe do evento</h2>
+		<a href="/eventos" class="btn btn-danger my-4">Lista de eventos</a>
+		<div class="alert alert-danger alert-dismissible" th:if="${not #strings.isEmpty(msgError)}">
+			<span th:text="${msgError}"></span>
+		</div>
+		<div class="alert alert-success alert-dismissible" th:if="${not #strings.isEmpty(msgSuccess)}">
+			<span th:text="${msgSuccess}"></span>
+		</div>
+		<div class="row">
+			
+			<div class="col-sm-5">
+		        <div class="card">
+		        	<div class="card-title text-center"> Informações do evento </div>
+		        	<div class="card-body">
+		        		Nome: <span th:text="${evento.nome}"></span><br />
+		        		Local: <span th:text="${evento.local}"></span><br />
+		        		Data: <span th:text="${evento.data}"></span><br />
+		        		Horário: <span th:text="${evento.horario}"></span>
+		        	</div>
+		        </div>
+			</div>
+	    
+			<div class="col-sm-6">
+				<h5 class="text-center">Cadastrar um novo convidado</h5>
+				<form method="POST" action="">
+				
+					<div class="row">
+						<div class="form-group col-sm-7">
+						<label for="">Nome completo: </label>
+						<input type="text" class="form-control" name="nome" id="nome">
+						</div>
+						
+						<div class="form-group col-sm-5">
+							<label for="">CPF: </label>
+							<input type="text" class="form-control" name="cpf" id="cpf">
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary">Cadastrar</button>
+				</form>
+			</div>
+		
+		</div>
+		
+		<h5 class="text-center mt-4">Lista de Convidados</h5>
+		<table class="table table-hover table-sm">
+			<thead class="thead-dark">
+				<tr>
+					<th>Nome</th><th>CPF</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="convidado : ${convidados}">
+					<td><span th:text="${convidado.nome}"></span> </td>
+						
+					<td><span th:text="${convidado.cpf}"></span> </td>
+						
+				</tr>
+			</tbody>
+		</table>
+	</div>
+    <script src="/bootstrap4/js/bootstrap.min.js"></script>
+</body>
+</html>
